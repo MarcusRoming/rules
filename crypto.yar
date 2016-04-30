@@ -164,3 +164,16 @@ rule DarkEYEv3_Cryptor : crypto {
 	condition:
 		uint16(0) == 0x5a4d and $s0
 }
+
+rule CRC32_Polynom : crypto {
+        meta:
+                author = "Marcus Roming"
+                description = "Look for CRC32 Polynom"
+                date = "2016-04"
+                version = "0.1"
+        strings:
+		$PolyCRC32 = { 20 83 B8 ED }
+
+	condition:
+		all of them
+}
